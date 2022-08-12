@@ -1,15 +1,29 @@
 const db = require('./_database');
 
 var updateData = async function(){
-    await db.connect(err => {
-        if(err){
-            throw err;
+    try {
+
+        try {
+            await db.connect();        
+            console.log(`\n ---------- Conexão ao Banco de Dados realizada com SUCESSO. ---------- \n`);            
+        } catch (error) {
+            console.log(`NÃO foi possível conectar ao banco de dados.`, error);
         }
-    });
 
-    await db.query(`UPDATE participante SET nome = 'Danilo Teste' WHERE id = 1`);
+        try {
+            await db.query(`UPDATE participante SET nome = 'Danilo Nodemon' WHERE id = 1`);    
+            console.log(`\n ---------- Operação realizada com SUCESSO. ---------- \n`)    
+        } catch (error) {
+            console.log(`Não foi possível atualizar.` + error + ".");
+            throw error;
+        }
 
-    await db.end();
+    } catch (error) {
+        console.log(`Ocorreu um ERRO.` + error + ".");
+    }
+    finally{
+        await db.end();
+    }   
 }
 
 updateData();
