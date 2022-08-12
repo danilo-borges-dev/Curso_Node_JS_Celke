@@ -2,5 +2,15 @@
   "dependencies": {
     "express": "^4.18.1",
     "pg": "^8.7.3"
-  }
+  },
+  "name": "aula_03",
+  "version": "1.0.0",
+  "description": "cursoDeNode",
+  "main": "1_drop.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "daniloBorges",
+  "license": "ISC"
 }

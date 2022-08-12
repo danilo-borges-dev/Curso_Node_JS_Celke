@@ -1,7 +1,12 @@
 const db = require('./_database');
 
 async function creaTables(){
-    await db.connect();
+    await db.connect(err => {
+        if(err) throw err;
+        else{
+            
+        }
+    });
 
     await db.query(`CREATE TABLE evento (
         id serial PRIMARY KEY,
